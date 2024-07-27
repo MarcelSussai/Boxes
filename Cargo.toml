@@ -1,0 +1,36 @@
+[package]
+name = "boxes-ui"
+version = "0.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+leptos = { version = "0.6", features = ["csr"] }
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+serde = { version = "1", features = ["derive"] }
+serde-wasm-bindgen = "0.6"
+console_error_panic_hook = "0.1.7"
+turf = { version = "0.9.2" }
+leptos-mview = "0.3.2"
+leptos_router = { version = "0.6.12", features = ["csr"] }
+leptos-use = "0.10.10"
+
+[workspace]
+members = ["src-tauri"]
+
+[package.metadata.turf]
+load_paths = []
+minify = true
+
+[package.metadata.turf.class_names]
+template = "boxes_<original_name>_<id>"
+
+[package.metadata.turf.browser_targets]
+chrome = [80, 1, 2]
+firefox = 65
+safari = [12, 3]
+
+[package.metadata.turf.file_output]
+global_css_file_path = "styles.css"
